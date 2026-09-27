@@ -7,7 +7,8 @@ const AppShell = ({children} : {children: ReactNode}) => {
         <SafeAreaView
             style={{
                 paddingHorizontal: 6,
-                flex: 1
+                flex: 1,
+                backgroundColor:"#000000"
             }}
         >
             <KeyboardAvoidingView>
