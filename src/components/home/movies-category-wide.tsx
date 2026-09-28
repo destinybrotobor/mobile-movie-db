@@ -1,6 +1,5 @@
-import { View, Text } from 'react-native'
-import { movieCardProps } from '@/types'
 import { Link } from 'expo-router'
+import { Text, View } from 'react-native'
 import Wide from './catigory(list/wide)/wide'
 
 const MoviesCategoryWide = () => {

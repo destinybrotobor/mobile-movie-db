@@ -1,73 +1,35 @@
-import { View, Text, Image, ScrollView, TouchableOpacity } from 'react-native'
-
+import { useMovies } from '@/hooks/use-movies';
+import { Lucide } from "@react-native-vector-icons/lucide";
+import { Image, ScrollView, Text, TouchableOpacity, View } from 'react-native';
 const list = () => {
+    const { popularMovies, isLoading } = useMovies();
     return (
         <ScrollView horizontal showsHorizontalScrollIndicator={false}>
             <View className='flex-row gap-7'>
                 {/**scrow 1 */}
-                <View className='flex-col gap-3'>
-                    <TouchableOpacity>
-                    <Image className='w-45 h-40 rounded-2xl'
-                        source={require('../../../../assets/bg-web2.jpg')}
-                    />
-                    </TouchableOpacity>
-                    <View className='flex-col gap-1'>
-                        <Text className='text-white font-medium'>Barbie</Text>
-                        <View className='flex-row gap-2'>
-                            <Text className='text-white'>logo</Text>
-                            <Text className='text-white font-extralight'>4.5 rating (4k+)</Text>
-                        </View>
-                         </View>  
-                          </View>
+                {popularMovies && popularMovies?.map((movie) => (
+                    <TouchableOpacity activeOpacity={0.5}>
 
+                        <View className='flex-col gap-3' key={movie.id}>
+                            <Image className='w-45 h-40 rounded-2xl'
+                                source={{ uri: `https://image.tmdb.org/t/p/w500${movie.poster_path}` }}
+                            />
+                            <View className='flex-col gap-1 '>
+                                <View>
+                                    <Text className='text-white font-medium'>{movie.title}</Text>
 
-     {/**scrow 2 */}
-              <View className='flex-col gap-3'>
-                    <TouchableOpacity>
-                    <Image className='w-45 h-40 rounded-2xl'
-                        source={require('../../../../assets/bg-web2.jpg')}
-                    />
-                    </TouchableOpacity>
-                    <View className='flex-col gap-1'>
-                        <Text className='text-white font-medium'>Barbie</Text>
-                        <View className='flex-row gap-2'>
-                            <Text className='text-white'>logo</Text>
-                            <Text className='text-white font-extralight'>4.5 rating (4k+)</Text>
+                                </View>
+                                <View className='flex-row gap-2 items-center'>
+                                    <Lucide name="star"
+                                        size={15}
+                                        color="gold" />
+                                    <Text className='text-white font-extralight'>4.5 rating (4k+)</Text>
+                                </View>
+                            </View>
                         </View>
-                         </View>  
-                          </View>
+                    </TouchableOpacity>
 
-                               {/**scrow 3 */}
-                 <View className='flex-col gap-3'>
-                    <TouchableOpacity>
-                    <Image className='w-45 h-40 rounded-2xl'
-                        source={require('../../../../assets/bg-web2.jpg')}
-                    />
-                    </TouchableOpacity>
-                    <View className='flex-col gap-1'>
-                        <Text className='text-white font-medium'>Barbie</Text>
-                        <View className='flex-row gap-2'>
-                            <Text className='text-white'>logo</Text>
-                            <Text className='text-white font-extralight'>4.5 rating (4k+)</Text>
-                        </View>
-                         </View>  
-                          </View>
-
-                               {/**scrow 4*/}
-                   <View className='flex-col gap-3'>
-                    <TouchableOpacity>
-                    <Image className='w-45 h-40 rounded-2xl'
-                        source={require('../../../../assets/bg-web2.jpg')}
-                    />
-                    </TouchableOpacity>
-                    <View className='flex-col gap-1'>
-                        <Text className='text-white font-medium'>Barbie</Text>
-                        <View className='flex-row gap-2'>
-                            <Text className='text-white'>logo</Text>
-                            <Text className='text-white font-extralight'>4.5 rating (4k+)</Text>
-                        </View>
-                         </View>  
-                          </View>
+                ))}
             </View>
         </ScrollView>
     )

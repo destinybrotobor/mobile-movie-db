@@ -1,4 +1,5 @@
-import { View, Text, Image, ScrollView, TouchableOpacity } from 'react-native'
+import Lucide from '@react-native-vector-icons/lucide'
+import { Image, ScrollView, Text, TouchableOpacity, View } from 'react-native'
 
 const wide = () => {
     return (
@@ -14,8 +15,10 @@ const wide = () => {
                     </TouchableOpacity>
                     <View className='flex-col gap-1'>
                         <Text className='text-white font-medium'>Barbie</Text>
-                        <View className='flex-row gap-2'>
-                            <Text className='text-white'>logo</Text>
+                        <View className=' items-center flex-row gap-2'>
+                            <Lucide name="star"
+                                                                    size={15}
+                                                                    color="gold" />
                             <Text className='text-white font-extralight'>4.5 rating (4k+)</Text>
                         </View>
                     </View>
@@ -33,7 +36,9 @@ const wide = () => {
                     <View className='flex-col gap-1'>
                         <Text className='text-white font-medium'>Barbie</Text>
                         <View className='flex-row gap-2'>
-                            <Text className='text-white'>logo</Text>
+                            <Lucide name="star"
+                                        size={15}
+                                        color="gold" />
                             <Text className='text-white font-extralight'>4.5 rating (4k+)</Text>
                         </View>
                     </View>
@@ -49,7 +54,9 @@ const wide = () => {
                     <View className='flex-col gap-1'>
                         <Text className='text-white font-medium'>Barbie</Text>
                         <View className='flex-row gap-2'>
-                            <Text className='text-white'>logo</Text>
+                            <Lucide name="star"
+                                        size={15}
+                                        color="gold" />
                             <Text className='text-white font-extralight'>4.5 rating (4k+)</Text>
                         </View>
                     </View>
@@ -66,7 +73,9 @@ const wide = () => {
                     <View className='flex-col gap-1'>
                         <Text className='text-white font-medium'>Barbie</Text>
                         <View className='flex-row gap-2'>
-                            <Text className='text-white'>logo</Text>
+                            <Lucide name="star"
+                                        size={15}
+                                        color="gold" />
                             <Text className='text-white font-extralight'>4.5 rating (4k+)</Text>
                         </View>
                     </View>

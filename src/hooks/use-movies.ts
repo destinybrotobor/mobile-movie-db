@@ -34,8 +34,7 @@ export const useMovies = () => {
                 method: 'GET',
                 headers: { accept: 'application/json', Authorization: `Bearer ${AccessKey}` }
             };
-
-            const response = await fetch(`${BaseUrl}/trending/movie/day`, options);
+            const response = await fetch(`${BaseUrl}/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc`, options);
             const data = await response.json();
             setMovies(data?.results)
             // console.log(data.results);
@@ -48,7 +47,22 @@ export const useMovies = () => {
     }
 
     const fetchPopularMovies = async () => {
+        setIsLoading(true);
+        try {
+            const options = {
+                method: 'GET',
+                headers: { accept: 'application/json', Authorization: `Bearer ${AccessKey}` }
+            };
+            const response = await fetch(`${BaseUrl}/trending/movie/day`, options);
+            const data = await response.json();
+            setPopularMovies(data?.results)
+            // console.log(data.results);
 
+        } catch (error) {
+            console.log(error);
+        } finally {
+            setIsLoading(false);
+        }
     }
 
     useEffect(() => {
