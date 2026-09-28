@@ -2,7 +2,8 @@ export interface movieProps {
     id: number,
     poster_path: string,
     title: string,
-    genre?: number[],
+    genre_ids?: number[],
+    genre: any,
     overview: string
 }
 
