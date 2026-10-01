@@ -7,8 +7,8 @@ const list = () => {
         <ScrollView horizontal showsHorizontalScrollIndicator={false}>
             <View className='flex-row gap-7'>
                 {/**scrow 1 */}
-                {popularMovies && popularMovies?.map((movie) => (
-                    <TouchableOpacity activeOpacity={0.5}>
+                {popularMovies && popularMovies?.map((movie, index) => (
+                    <TouchableOpacity key={index} activeOpacity={0.5}>
 
                         <View className='flex-col gap-3' key={movie.id}>
                             <Image className='w-45 h-40 rounded-2xl'
